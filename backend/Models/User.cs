@@ -1,18 +1,21 @@
 using System.ComponentModel.DataAnnotations;
 
-public class User
+namespace Backend.Models
 {
-    [Key]
-    public int Id { get; set; } // Primary Key
+    public class User
+    {
+        [Key]
+        public int Id { get; set; }
 
-    [Required]
-    [MaxLength(50)]
-    public string Username { get; set; } // Unique username
+        [Required]
+        [MaxLength(50)]
+        public required string Username { get; set; } // Required modifier ensures initialization
 
-    [Required]
-    [MaxLength(100)]
-    public string Email { get; set; } // Unique email address
+        [Required]
+        [MaxLength(100)]
+        public required string Email { get; set; }
 
-    [Required]
-    public string PasswordHash { get; set; } // Hashed password
+        [Required]
+        public required string PasswordHash { get; set; }
+    }
 }

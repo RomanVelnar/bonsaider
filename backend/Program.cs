@@ -1,44 +1,48 @@
+using System.Security.Cryptography;
+using System.Text;
+using Backend.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Register services like DbContext (if needed) here in the future.
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 
-app.UseHttpsRedirection();
-
-var summaries = new[]
+// Add a simple example to demonstrate creating a User object
+app.MapGet("/", () =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+    // Example: Creating a new user
+    var user = new User
+    {
+        Username = "testuser",
+        Email = "test@example.com",
+        PasswordHash = HashPassword("password123") // Hashing the password
+    };
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+    return new
+    {
+        Message = "User created successfully!",
+        Username = user.Username,
+        Email = user.Email,
+        PasswordHash = user.PasswordHash
+    };
+});
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+// Helper method to hash the password using SHA256
+static string HashPassword(string password)
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    using (var sha256 = SHA256.Create())
+    {
+        var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+        return Convert.ToBase64String(bytes);
+    }
 }
