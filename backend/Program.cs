@@ -1,11 +1,20 @@
 using System.Security.Cryptography;
 using System.Text;
 using Backend.Models;
+using Backend.Data;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 // Register services like DbContext (if needed) here in the future.
+
+// Register DbContext and configure the PostgreSQL connection
+builder.Services.AddDbContext<BonsaiContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
+
 
 var app = builder.Build();
 
