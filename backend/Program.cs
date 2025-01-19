@@ -3,6 +3,7 @@ using System.Text;
 using Backend.Models;
 using Backend.Data;
 using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Register services like DbContext (if needed) here in the future.
 
+var connectionString = Environment.GetEnvironmentVariable("POSTGRES_CONNECTION");
+
 // Register DbContext and configure the PostgreSQL connection
 builder.Services.AddDbContext<BonsaiContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
+    options.UseNpgsql(connectionString));
 
 
 var app = builder.Build();
