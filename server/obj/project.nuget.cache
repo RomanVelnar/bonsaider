@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nXJabF+hMK/rueIyMfp+Kgc7SX5hFu6rLsVVQg9geMffxWZ4EtOofh/Ujt2CeYBkuNHJsJhWENdeNS3VrhwKHQ==",
+  "dgSpecHash": "2+JKxL2Vg0TwC18ynILWAtefMJMJFfPigK9Wrs9vz6Fyfwil/M2OTY5GLirGYYl2JwKWKNl4t9HKHYHwiAk9tQ==",
   "success": true,
-  "projectFilePath": "/Users/romanvelnar/dev/bonsaider/backend/backend.csproj",
+  "projectFilePath": "/Users/romanvelnar/Documents/dev/bonsaider/backend/backend.csproj",
   "expectedPackageFiles": [
     "/Users/romanvelnar/.nuget/packages/microsoft.aspnetcore.openapi/8.0.2/microsoft.aspnetcore.openapi.8.0.2.nupkg.sha512",
     "/Users/romanvelnar/.nuget/packages/microsoft.entityframeworkcore/9.0.0/microsoft.entityframeworkcore.9.0.0.nupkg.sha512",
