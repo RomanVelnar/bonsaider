@@ -23,7 +23,7 @@ app.MapGet("/", () =>
     {
         Username = "testuser",
         Email = "test@example.com",
-        PasswordHash = HashPassword("password123") // Hashing the password
+        PasswordHash = HashPassword("password123!") // Hashing the password
     };
 
     return new

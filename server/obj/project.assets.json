@@ -1196,11 +1196,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/romanvelnar/Documents/dev/bonsaider/backend/backend.csproj",
-      "projectName": "backend",
-      "projectPath": "/Users/romanvelnar/Documents/dev/bonsaider/backend/backend.csproj",
+      "projectUniqueName": "/Users/romanvelnar/Documents/dev/bonsaider/server/server.csproj",
+      "projectName": "server",
+      "projectPath": "/Users/romanvelnar/Documents/dev/bonsaider/server/server.csproj",
       "packagesPath": "/Users/romanvelnar/.nuget/packages/",
-      "outputPath": "/Users/romanvelnar/Documents/dev/bonsaider/backend/obj/",
+      "outputPath": "/Users/romanvelnar/Documents/dev/bonsaider/server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/romanvelnar/.nuget/NuGet/NuGet.Config"
