@@ -15,15 +15,13 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-// Add a simple example to demonstrate creating a User object
 app.MapGet("/", () =>
 {
-    // Example: Creating a new user
     var user = new User
     {
         Username = "testuser",
         Email = "test@example.com",
-        PasswordHash = HashPassword("password123") // Hashing the password
+        PasswordHash = HashPassword("password123")
     };
 
     return new
@@ -37,7 +35,6 @@ app.MapGet("/", () =>
 
 app.Run();
 
-// Helper method to hash the password using SHA256
 static string HashPassword(string password)
 {
     using (var sha256 = SHA256.Create())
