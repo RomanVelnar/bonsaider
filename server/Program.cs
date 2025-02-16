@@ -39,9 +39,13 @@ if (app.Environment.IsDevelopment())
 // Test API Endpoint to create a user
 app.MapPost("/users", async (BonsaiContext db, User user) =>
 {
-    user.PasswordHash = HashPassword(user.PasswordHash); // Hash the password before storing
-    db.Users.Add(user);
-    await db.SaveChangesAsync();
+    // Example: Creating a new user
+    var user = new User
+    {
+        Username = "testuser",
+        Email = "test@example.com",
+        PasswordHash = HashPassword("password123!") // Hashing the password
+    };
 
     return Results.Created($"/users/{user.Id}", new
     {
