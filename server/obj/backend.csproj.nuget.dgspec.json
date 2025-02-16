@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/romanvelnar/Documents/dev/bonsaider/backend/backend.csproj": {}
+    "/Users/romanvelnar/dev/bonsaider/server/backend.csproj": {}
   },
   "projects": {
-    "/Users/romanvelnar/Documents/dev/bonsaider/backend/backend.csproj": {
+    "/Users/romanvelnar/dev/bonsaider/server/backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/romanvelnar/Documents/dev/bonsaider/backend/backend.csproj",
+        "projectUniqueName": "/Users/romanvelnar/dev/bonsaider/server/backend.csproj",
         "projectName": "backend",
-        "projectPath": "/Users/romanvelnar/Documents/dev/bonsaider/backend/backend.csproj",
+        "projectPath": "/Users/romanvelnar/dev/bonsaider/server/backend.csproj",
         "packagesPath": "/Users/romanvelnar/.nuget/packages/",
-        "outputPath": "/Users/romanvelnar/Documents/dev/bonsaider/backend/obj/",
+        "outputPath": "/Users/romanvelnar/dev/bonsaider/server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/romanvelnar/.nuget/NuGet/NuGet.Config"
@@ -32,23 +32,38 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.2, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[9.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -74,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
