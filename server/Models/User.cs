@@ -1,11 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Backend.Models
 {
-    public class User
+    public class User : Common
     {
-        [Key]
-        public int Id { get; set; }
 
         [Required]
         [MaxLength(50)]
