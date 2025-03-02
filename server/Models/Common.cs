@@ -5,28 +5,36 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Backend.Models
 {
     /// <summary>
-    /// This is a basic/common model that will be included in all other models
+    /// This is a common base model that will be included in all other models.
     /// </summary>
     public abstract class Common
     {
         /// <summary>
-        /// Unique identifier for the entity
+        /// Unique identifier for the entity.
         /// </summary>
         [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; }
 
         /// <summary>
-        /// Time stamp when the entity was created
+        /// Timestamp when the entity was created.
         /// </summary>
-        public DateTimeOffset CreatedDate
+        [Required]
+        public DateTimeOffset CreatedDate { get; set; }
+
+        /// <summary>
+        /// Timestamp when the entity was last updated.
+        /// </summary>
+        [Required]
+        public DateTimeOffset LastModifiedDate { get; set; }
+
+        /// <summary>
+        /// Constructor ensures default values.
+        /// </summary>
+        public Common()
         {
-            get; set;
-        } = DateTimeOffset.UtcNow;
-
-        /// <summary>
-        /// Time stamp when the entity was last updated
-        /// </summary>
-        public DateTimeOffset LastModifiedDate { get; set; } = DateTimeOffset.UtcNow;
+            Id = Guid.NewGuid();
+            CreatedDate = DateTimeOffset.UtcNow;
+            LastModifiedDate = DateTimeOffset.UtcNow;
+        }
     }
-
 }

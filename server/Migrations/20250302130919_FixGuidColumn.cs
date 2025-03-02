@@ -7,19 +7,35 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace backend.Migrations
 {
     /// <inheritdoc />
-    public partial class AddUsersTable : Migration
+    public partial class FixGuidColumn : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<Guid>(
+            migrationBuilder.DropPrimaryKey(
+            name: "PK_Users",
+            table: "Users"
+            );
+
+            migrationBuilder.DropColumn(
+                name: "Id",
+                table: "Users"
+            );
+
+            migrationBuilder.AddColumn<Guid>(
                 name: "Id",
                 table: "Users",
                 type: "uuid",
                 nullable: false,
-                oldClrType: typeof(int),
-                oldType: "integer")
-                .OldAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                defaultValueSql: "gen_random_uuid()" 
+            );
+
+            migrationBuilder.AddPrimaryKey(
+                name: "PK_Users",
+                table: "Users",
+                column: "Id"
+            );
+
 
             migrationBuilder.AddColumn<DateTimeOffset>(
                 name: "CreatedDate",

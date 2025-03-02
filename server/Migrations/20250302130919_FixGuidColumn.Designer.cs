@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace backend.Migrations
 {
     [DbContext(typeof(BonsaiContext))]
-    [Migration("20250302124939_AddUsersTable")]
-    partial class AddUsersTable
+    [Migration("20250302130919_FixGuidColumn")]
+    partial class FixGuidColumn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
