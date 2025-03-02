@@ -40,7 +40,7 @@ if (app.Environment.IsDevelopment())
 app.MapPost("/users", async (BonsaiContext db, User user) =>
 {
     // Example: Creating a new user
-    var user = new User
+    var newUser = new User
     {
         Username = "testuser",
         Email = "test@example.com",

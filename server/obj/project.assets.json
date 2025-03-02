@@ -7955,9 +7955,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/romanvelnar/dev/bonsaider/server/backend.csproj",
-      "projectName": "backend",
-      "projectPath": "/Users/romanvelnar/dev/bonsaider/server/backend.csproj",
+      "projectUniqueName": "/Users/romanvelnar/dev/bonsaider/server/server.csproj",
+      "projectName": "server",
+      "projectPath": "/Users/romanvelnar/dev/bonsaider/server/server.csproj",
       "packagesPath": "/Users/romanvelnar/.nuget/packages/",
       "outputPath": "/Users/romanvelnar/dev/bonsaider/server/obj/",
       "projectStyle": "PackageReference",
