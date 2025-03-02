@@ -8,13 +8,13 @@ namespace Backend.Models
         /// <summary>
         /// Unique identifier for the entity
         /// </summary>
-        [key]
-        public Guid id { get; set; } = Guid.NewGuid();
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Time stamp when the entity was created
         /// </summary>
-        public DateTimeOffset createdDate
+        public DateTimeOffset CreatedDate
         {
             get; set;
         } = DateTimeOffset.UtcNow;
@@ -22,7 +22,7 @@ namespace Backend.Models
         /// <summary>
         /// Time stamp when the entity was last updated
         /// </summary>
-        public DateTimeOffset lastModifiedDate { get; set; } = DateTimeOffset.UtcNow;
+        public DateTimeOffset LastModifiedDate { get; set; } = DateTimeOffset.UtcNow;
     }
 
 }
