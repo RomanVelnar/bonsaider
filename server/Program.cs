@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
-using Backend.Models;
-using Backend.Data;
+using Server.Models;
+using Server.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

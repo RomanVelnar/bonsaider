@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace backend.Migrations
+namespace Server.Migrations
 {
     /// <inheritdoc />
     public partial class FixGuidColumn : Migration
