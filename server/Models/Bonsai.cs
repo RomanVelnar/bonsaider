@@ -9,7 +9,7 @@ namespace Server.Models
         /// </summary>
         [Required]
         [MaxLength(50)]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
      
         /// <summary>
         /// Age of the Bonsai 
@@ -23,6 +23,6 @@ namespace Server.Models
         /// </summary>
         [Required]
         [MaxLength(50)]
-        public string Species { get; set; }
+        public string Species { get; set; } = string.Empty;
     }
 }
