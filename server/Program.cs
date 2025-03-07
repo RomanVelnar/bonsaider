@@ -5,15 +5,15 @@ using Server.Endpoints;
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 
+// Register controllers
+builder.Services.AddControllers();
+
 // Configure your connection string and register your DbContext
 var connectionString = $"Host={Environment.GetEnvironmentVariable("DB_HOST")};" +
                        $"Port={Environment.GetEnvironmentVariable("DB_PORT")};" +
                        $"Database={Environment.GetEnvironmentVariable("DB_NAME")};" +
                        $"Username={Environment.GetEnvironmentVariable("DB_USER")};" +
                        $"Password={Environment.GetEnvironmentVariable("DB_PASS")};";
-
-builder.Services.AddDbContext<BonsaiContext>(options =>
-    options.UseNpgsql(connectionString));
 
 builder.Services.AddDbContext<BonsaiContext>(options =>
     options.UseNpgsql(connectionString));
@@ -34,6 +34,9 @@ if (app.Environment.IsDevelopment())
 
 // Register the user endpoints from our separate file
 app.MapUserEndpoints();
+
+// Map attribute-based controllers (this will include your BonsaiController)
+app.MapControllers();
 
 // Health-check endpoint
 app.MapGet("/", () => "Server is up and running!");
