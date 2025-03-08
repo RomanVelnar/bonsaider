@@ -17,18 +17,20 @@ namespace Server.Endpoints
         {
             _context = context;
         }
-            
+
         // GET: api/bonsai/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Bonsai>> GetBonsai(int id)
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<Bonsai>> GetBonsai(Guid id)
         {
             var bonsai = await _context.Bonsais.FindAsync(id);
             if (bonsai == null)
             {
                 return NotFound();
             }
+
             return Ok(bonsai);
         }
+
 
         // POST: api/bonsai
         [HttpPost]
