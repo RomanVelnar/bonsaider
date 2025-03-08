@@ -2,8 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server.Data;
 using Server.Models;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Server.Endpoints
 {
@@ -39,11 +37,9 @@ namespace Server.Endpoints
             _context.Bonsais.Add(newBonsai);
             await _context.SaveChangesAsync();
 
-            // This returns a 201 response and points to the GET endpoint for the new Bonsai.
             return CreatedAtAction(nameof(GetBonsai), new { id = newBonsai.Id }, newBonsai);
         }
 
-        // Optionally, you could add a GET to retrieve all Bonsais.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bonsai>>> GetBonsais()
         {

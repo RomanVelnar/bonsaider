@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Server.Data;
-using Server.Endpoints;
 
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +19,6 @@ builder.Services.AddDbContext<BonsaiContext>(options =>
 
 var app = builder.Build();
 
-// Apply pending migrations on startup (optional)
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<BonsaiContext>();
@@ -32,13 +30,8 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-// Register the user endpoints from our separate file
-app.MapUserEndpoints();
-
-// Map attribute-based controllers (this will include your BonsaiController)
 app.MapControllers();
 
-// Health-check endpoint
 app.MapGet("/", () => "Server is up and running!");
 
 app.Run();
