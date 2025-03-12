@@ -21,7 +21,7 @@ Milestone 3
 
 ## How to use the project
 ### Clone the repository
-git clone https://github.com/yourusername/bonsaider.git
+git clone https://github.com/romanvelnar/bonsaider.git
 cd bonsaider
 
 ### Install dependencies
