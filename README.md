@@ -3,15 +3,19 @@ Bonsaider is a mobile app designed for bonsai enthusiasts to track their trees, 
 Users can manage bonsais, record jobs (such as pruning or watering), and receive reminders for upcoming tasks.
 
 ## Features
-Milestone 1
+#### Milestone 1
 - Create user
 - Create, Get, Delete and Update Bonsais to the system.
 
-Milestone 2
+#### Milestone 2
 - Create, Get, Delete and Update a Job that is against a Bonsai
 
-Milestone 3
+#### Milestone 3
 - Register, login and reset password for user
+
+#### Milestone 4
+- Calculate the latest job for a certain bonsai, upcoming jobs
+- Think to implement standard jobs that are through the season
 
 ## Tech stack
 - Frontend: React Native
