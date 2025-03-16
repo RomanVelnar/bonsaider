@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/romanvelnar/dev/bonsaider/Server/server.csproj": {}
+    "/Users/romanvelnar/dev/bonsaider/Server.Tests/Server.Tests.csproj": {}
   },
   "projects": {
-    "/Users/romanvelnar/dev/bonsaider/Server/server.csproj": {
+    "/Users/romanvelnar/dev/bonsaider/Server.Tests/Server.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/romanvelnar/dev/bonsaider/Server/server.csproj",
-        "projectName": "server",
-        "projectPath": "/Users/romanvelnar/dev/bonsaider/Server/server.csproj",
+        "projectUniqueName": "/Users/romanvelnar/dev/bonsaider/Server.Tests/Server.Tests.csproj",
+        "projectName": "Server.Tests",
+        "projectPath": "/Users/romanvelnar/dev/bonsaider/Server.Tests/Server.Tests.csproj",
         "packagesPath": "/Users/romanvelnar/.nuget/packages/",
-        "outputPath": "/Users/romanvelnar/dev/bonsaider/Server/obj/",
+        "outputPath": "/Users/romanvelnar/dev/bonsaider/Server.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/romanvelnar/.nuget/NuGet/NuGet.Config"
@@ -43,31 +43,21 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "DotNetEnv": {
+            "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[17.8.0, )"
             },
-            "Microsoft.AspNetCore.OpenApi": {
+            "coverlet.collector": {
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[6.0.0, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "xunit": {
               "target": "Package",
-              "version": "[9.0.2, )"
+              "version": "[2.5.3, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "xunit.runner.visualstudio": {
               "target": "Package",
-              "version": "[9.0.2, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[9.0.3, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[2.5.3, )"
             }
           },
           "imports": [
@@ -82,9 +72,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -7955,11 +7955,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/romanvelnar/dev/bonsaider/server/server.csproj",
+      "projectUniqueName": "/Users/romanvelnar/dev/bonsaider/Server/server.csproj",
       "projectName": "server",
-      "projectPath": "/Users/romanvelnar/dev/bonsaider/server/server.csproj",
+      "projectPath": "/Users/romanvelnar/dev/bonsaider/Server/server.csproj",
       "packagesPath": "/Users/romanvelnar/.nuget/packages/",
-      "outputPath": "/Users/romanvelnar/dev/bonsaider/server/obj/",
+      "outputPath": "/Users/romanvelnar/dev/bonsaider/Server/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/romanvelnar/.nuget/NuGet/NuGet.Config"
