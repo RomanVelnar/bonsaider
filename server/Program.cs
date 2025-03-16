@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Register controllers
 builder.Services.AddControllers();
 
-// Configure your connection string and register your DbContext
 var connectionString = $"Host={Environment.GetEnvironmentVariable("DB_HOST")};" +
                        $"Port={Environment.GetEnvironmentVariable("DB_PORT")};" +
                        $"Database={Environment.GetEnvironmentVariable("DB_NAME")};" +

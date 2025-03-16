@@ -8,7 +8,7 @@ namespace Server.Models
 
         [Required]
         [MaxLength(50)]
-        public required string Username { get; set; } // Required modifier ensures initialization
+        public required string Username { get; set; } 
 
         [Required]
         [MaxLength(100)]
