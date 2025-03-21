@@ -1,0 +1,32 @@
+# Ignore environment variables
+.env
+
+# Ignore build files
+bin/
+obj/
+*.pdb
+*.exe
+*.dll
+*.log
+
+# Ignore IDE and OS files
+.vscode/
+.idea/            
+*.DS_Store        
+*.DotSettings.user 
+
+# Ignore Rider project files
+*.sln.DotSettings.user
+*.suo
+*.user
+*.userosscache
+*.sln.iml
+
+# Ignore Rider build-related files
+*.rider/
+*.rider.project.model.nuget.info
+*.rider.project.restore.info
+
+# Ignore temporary files
+*.cache
+*.lock
