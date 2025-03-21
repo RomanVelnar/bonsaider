@@ -1,56 +1,59 @@
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Moq;
+using Server.Endpoints;
+using Server.Models;
+using Server.Data;
+using Xunit;
+
 namespace Server.Tests
 {
     public class UserControllerTests
     {
         private readonly BonsaiContext _dbContext;
-        private readonly Mock<IPasswordHasher<User>> _mockPasswordHasher;
         private readonly UserController _controller;
 
         public UserControllerTests()
         {
             var options = new DbContextOptionsBuilder<BonsaiContext>()
-            .UseInMemoryDatabase(databaseName: "TestDb")
-            .Options;
-            _dbContext = new BonsaiContext(options);
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()) // Unique per run
+                .Options;
 
-            _dbContext.Database.EnsureDeleted();
+            _dbContext = new BonsaiContext(options);
             _dbContext.Database.EnsureCreated();
 
-            
-            _mockPasswordHasher = new Mock<IPasswordHasher<User>>();
-            _mockPasswordHasher
-                .Setup(ph => ph.HashPassword(It.IsAny<User>(), It.IsAny<string>()))
-                .Returns("hashed_password");
-
-            
-            _controller = new UserController(_dbContext, _mockPasswordHasher.Object);
+            _controller = new UserController(_dbContext);
         }
 
         [Fact]
         public async Task GetUser_ReturnsOk_WhenUserExists()
         {
-            // Arrange
             var userId = Guid.NewGuid();
-            var testUser = new User { Id = userId, Username = "testuser", Email = "test@example.com", PasswordHash = "hashed_password" };
+            var testUser = new User
+            {
+                Id = userId,
+                Username = "testuser",
+                Email = "test@example.com",
+                PasswordHash = "hashed_password"
+            };
             _dbContext.Users.Add(testUser);
             await _dbContext.SaveChangesAsync();
 
-            // Act
             var result = await _controller.GetUser(userId);
 
-            // Assert
             var okResult = Assert.IsType<OkObjectResult>(result.Result);
-            var returnedUser = Assert.IsType<UserDTO>(okResult.Value);
+            var returnedUser = Assert.IsType<User>(okResult.Value);
             Assert.Equal("testuser", returnedUser.Username);
         }
 
         [Fact]
         public async Task GetUser_ReturnsNotFound_WhenUserDoesNotExist()
         {
-            // Act
             var result = await _controller.GetUser(Guid.NewGuid());
 
-            // Assert
             Assert.IsType<NotFoundResult>(result.Result);
         }
     }
