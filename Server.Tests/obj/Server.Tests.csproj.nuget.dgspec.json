@@ -45,7 +45,7 @@
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.8.0, )"
+              "version": "[17.13.0, )"
             },
             "coverlet.collector": {
               "target": "Package",
