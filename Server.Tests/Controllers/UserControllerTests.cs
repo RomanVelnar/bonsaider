@@ -86,5 +86,32 @@ namespace Server.Tests
             Assert.NotNull(createdUser.PasswordHash);
             Assert.NotEqual(dto.Password, createdUser.PasswordHash);
         }
+
+        [Fact]
+        public async Task CreateUser_ReturnsBadRequest_WhenDtoIsInvalid()
+        {
+            // Arrange
+            var dto = new UserRegistrationDTO
+            {
+                Username = "",
+                Email = "not_an_email",
+                Password = "123"
+            };
+
+            _controller.ModelState.AddModelError("Username", "Username is required");
+            _controller.ModelState.AddModelError("Email", "Email is required");
+            _controller.ModelState.AddModelError("Password", "Password is required");
+
+            // Act
+            var result = await _controller.CreateUser(dto);
+
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result.Result);
+            var errors = Assert.IsAssignableFrom<SerializableError>(badRequestResult.Value);
+
+            Assert.True(errors.ContainsKey("Username"));
+            Assert.True(errors.ContainsKey("Email"));
+            Assert.True(errors.ContainsKey("Password"));
+        }
     }
 }
