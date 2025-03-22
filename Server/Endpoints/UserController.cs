@@ -33,6 +33,7 @@ namespace Server.Endpoints
 
 
         // POST: api/users
+        [HttpPost]
         public async Task<ActionResult<User>> CreateUser([FromBody] UserRegistrationDTO dto)
         {
             var newUser = new User
