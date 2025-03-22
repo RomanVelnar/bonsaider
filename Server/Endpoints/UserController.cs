@@ -36,6 +36,11 @@ namespace Server.Endpoints
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser([FromBody] UserRegistrationDTO dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var newUser = new User
             {
                 Username = dto.Username,
@@ -46,7 +51,6 @@ namespace Server.Endpoints
             _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
 
-            // Returns a 201 Created response with a Location header pointing to the GET endpoint for this user.
             return CreatedAtAction(nameof(GetUser), new { id = newUser.Id }, newUser);
         }
 
